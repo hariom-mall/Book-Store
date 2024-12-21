@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            padding: 20px;
+        }
+        h2 {
+            text-align: center;
+            color: #004080; /* Navy Blue */
+            margin-bottom: 20px;
+        }
+        form {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #333;
+        }
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+        .form-group input:focus {
+            outline: none;
+            border-color: #004080;
+        }
+        .error {
+            color: red;
+            font-size: 12px;
+            margin-top: 5px;
+        }
+        .form-actions {
+            text-align: center;
+        }
+        .form-actions button {
+            padding: 10px 20px;
+            font-size: 16px;
+            color: white;
+            background-color: #004080;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .form-actions button:hover {
+            background-color: #003366;
+        }
+    </style>
+</head>
+<body>
+    <h2>Registration Form</h2>
+    <form id="registrationForm" onsubmit="return validateForm()">
+        <!-- Name -->
+        <div class="form-group">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+            <div id="nameError" class="error"></div>
+        </div>
+
+        <!-- Password -->
+        <div class="form-group">
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+            <div id="passwordError" class="error"></div>
+        </div>
+
+        <!-- Email -->
+        <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+            <div id="emailError" class="error"></div>
+        </div>
+
+        <!-- Phone Number -->
+        <div class="form-group">
+            <label for="phone">Phone Number:</label>
+            <input type="text" id="phone" name="phone" required>
+            <div id="phoneError" class="error"></div>
+        </div>
+
+        <!-- Sex -->
+        <div class="form-group">
+            <label>Sex:</label>
+            <input type="radio" id="male" name="sex" value="male" required>
+            <label for="male">Male</label>
+            <input type="radio" id="female" name="sex" value="female">
+            <label for="female">Female</label>
+        </div>
+
+        <!-- Date of Birth -->
+        <div class="form-group">
+            <label>Date of Birth:</label>
+            <select name="dob_day" required>
+                <option value="" disabled selected>Day</option>
+                <script>
+                    for (let i = 1; i <= 31; i++) {
+                        document.write(`<option value="${i}">${i}</option>`);
+                    }
+                </script>
+            </select>
+            <select name="dob_month" required>
+                <option value="" disabled selected>Month</option>
+                <option value="January">January</option>
+                <option value="February">February</option>
+                <option value="March">March</option>
+                <option value="April">April</option>
+                <option value="May">May</option>
+                <option value="June">June</option>
+                <option value="July">July</option>
+                <option value="August">August</option>
+                <option value="September">September</option>
+                <option value="October">October</option>
+                <option value="November">November</option>
+                <option value="December">December</option>
+            </select>
+            <select name="dob_year" required>
+                <option value="" disabled selected>Year</option>
+                <script>
+                    for (let i = 1970; i <= new Date().getFullYear(); i++) {
+                        document.write(`<option value="${i}">${i}</option>`);
+                    }
+                </script>
+            </select>
+        </div>
+
+        <!-- Languages Known -->
+        <div class="form-group">
+            <label>Languages Known:</label>
+            <input type="checkbox" id="hindi" name="languages" value="Hindi">
+            <label for="hindi">Hindi</label>
+            <input type="checkbox" id="english" name="languages" value="English">
+            <label for="english">English</label>
+            <input type="checkbox" id="telugu" name="languages" value="Telugu">
+            <label for="telugu">Telugu</label>
+            <input type="checkbox" id="tamil" name="languages" value="Tamil">
+            <label for="tamil">Tamil</label>
+        </div>
+
+        <!-- Address -->
+        <div class="form-group">
+            <label for="address">Address:</label>
+            <textarea id="address" name="address" rows="4" required></textarea>
+        </div>
+
+        <!-- Submit Button -->
+        <div class="form-actions">
+            <button type="submit">Register</button>
+        </div>
+    </form>
+
+    <script>
+        function validateForm() {
+            // Clear previous error messages
+            document.getElementById('nameError').textContent = '';
+            document.getElementById('passwordError').textContent = '';
+            document.getElementById('emailError').textContent = '';
+            document.getElementById('phoneError').textContent = '';
+
+            // Get form field values
+            const name = document.getElementById('name').value.trim();
+            const password = document.getElementById('password').value;
+            const email = document.getElementById('email').value.trim();
+            const phone = document.getElementById('phone').value.trim();
+
+            let isValid = true;
+
+            // Validate name (minimum 6 alphabetic characters)
+            if (name.length < 6 || !/^[a-zA-Z\s]+$/.test(name)) {
+                document.getElementById('nameError').textContent = 'Name should contain at least 6 alphabetic characters.';
+                isValid = false;
+            }
+
+            // Validate password (minimum 6 characters)
+            if (password.length < 6) {
+                document.getElementById('passwordError').textContent = 'Password should be at least 6 characters long.';
+                isValid = false;
+            }
+
+            // Validate email (proper format)
+            const emailRegex = /^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/;
+            if (!emailRegex.test(email)) {
+                document.getElementById('emailError').textContent = 'Please enter a valid email address.';
+                isValid = false;
+            }
+
+            // Validate phone number (10 digits)
+            if (phone.length !== 10 || !/^[0-9]{10}$/.test(phone)) {
+                document.getElementById('phoneError').textContent = 'Phone number must be exactly 10 digits.';
+                isValid = false;
+            }
+
+            return isValid; // Prevent form submission if validation fails
+        }
+    </script>
+</body>
+</html>

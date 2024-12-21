@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catalogue</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            padding: 20px;
+        }
+        h2 {
+            text-align: center;
+            color: #004080; /* Navy Blue */
+            margin-bottom: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 0 auto;
+            background-color: white;
+        }
+        th, td {
+            padding: 15px;
+            text-align: left;
+            border: 1px solid #ddd;
+        }
+        th {
+            background-color: #004080;
+            color: white;
+        }
+        td img {
+            max-width: 100px;
+            height: auto;
+            border-radius: 5px;
+        }
+        .add-to-cart {
+            padding: 10px 15px;
+            font-size: 14px;
+            color: white;
+            background-color: #004080;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-align: center;
+        }
+        .add-to-cart:hover {
+            background-color: #003366;
+        }
+    </style>
+</head>
+<body>
+    <h2>Book Catalogue</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Cover Page</th>
+                <th>Author Name</th>
+                <th>Publisher</th>
+                <th>Price</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><img src="book1.jpg" alt="Book 1"></td>
+                <td>APJ Abdul Kalam</td>
+                <td>Universities Press</td>
+                <td>Rs 750.00</td>
+                <td><button class="add-to-cart" onclick="addToCart('APJ Abdul Kalam', 'Universities Press', 750)">Add to Cart</button></td>
+            </tr>
+            <tr>
+                <td><img src="book2.jpg" alt="Book 2"></td>
+                <td>Homi J Bhabha</td>
+                <td>Rupa Publications</td>
+                <td>Rs 500.00</td>
+                <td><button class="add-to-cart" onclick="addToCart('Homi J Bhabha', 'Rupa Publications', 500)">Add to Cart</button></td>
+            </tr>
+            <tr>
+                <td><img src="book3.jpg" alt="Book 3"></td>
+                <td>Rodney R Howell</td>
+                <td>World Scientific</td>
+                <td>Rs 820.00</td>
+                <td><button class="add-to-cart" onclick="addToCart('Rodney R Howell', 'World Scientific', 820)">Add to Cart</button></td>
+            </tr>
+            <tr>
+                <td><img src="book4.jpg" alt="Book 4"></td>
+                <td>Herbert Schildt</td>
+                <td>Mc Graw Hill</td>
+                <td>Rs 1100.00</td>
+                <td><button class="add-to-cart" onclick="addToCart('Herbert Schildt', 'Mc Graw Hill', 1100)">Add to Cart</button></td>
+            </tr>
+            <tr>
+                <td><img src="book5.jpg" alt="Book 5"></td>
+                <td>Thomas H. Cormen</td>
+                <td>MIT Press</td>
+                <td>Rs 700.00</td>
+                <td><button class="add-to-cart" onclick="addToCart('Thomas H. Cormen', 'MIT Press', 700)">Add to Cart</button></td>
+            </tr>
+            <tr>
+                <td><img src="book6.jpg" alt="Book 6"></td>
+                <td>Abraham Silberschatz</td>
+                <td>Wiley</td>
+                <td>Rs 425.00</td>
+                <td><button class="add-to-cart" onclick="addToCart('Abraham Silberschatz', 'Wiley', 425)">Add to Cart</button></td>
+            </tr>
+            <tr>
+                <td><img src="book7.jpg" alt="Book 7"></td>
+                <td>R. Elmasri</td>
+                <td>Pearson</td>
+                <td>Rs 1125.00</td>
+                <td><button class="add-to-cart" onclick="addToCart('R. Elmasri', 'Pearson', 1125)">Add to Cart</button></td>
+            </tr>
+            <tr>
+                <td><img src="book8.jpg" alt="Book 8"></td>
+                <td>Dr. J.S. Chitode</td>
+                <td>Technical Publications</td>
+                <td>Rs 905.00</td>
+                <td><button class="add-to-cart" onclick="addToCart('Dr. J.S. Chitode', 'Technical Publications', 905)">Add to Cart</button></td>
+            </tr>
+            <tr>
+                <td><img src="book9.jpg" alt="Book 9"></td>
+                <td>U.A. Bakshi</td>
+                <td>Technical Publications</td>
+                <td>Rs 524.00</td>
+                <td><button class="add-to-cart" onclick="addToCart('U.A. Bakshi', 'Technical Publications', 524)">Add to Cart</button></td>
+            </tr>
+            <tr>
+                <td><img src="book10.jpg" alt="Book 10"></td>
+                <td>V.U. Bakshi</td>
+                <td>Technical Publications</td>
+                <td>Rs 475.00</td>
+                <td><button class="add-to-cart" onclick="addToCart('V.U. Bakshi', 'Technical Publications', 475)">Add to Cart</button></td>
+            </tr>
+            <tr>
+                <td><img src="book11.jpg" alt="Book 11"></td>
+                <td>A.R. Hambley</td>
+                <td>Pearson</td>
+                <td>Rs 500.00</td>
+                <td><button class="add-to-cart" onclick="addToCart('A.R. Hambley', 'Pearson', 500)">Add to Cart</button></td>
+            </tr>
+            <tr>
+                <td><img src="book12.jpg" alt="Book 12"></td>
+                <td>DP Kothari</td>
+                <td>Mc Graw Hill</td>
+                <td>Rs 534.00</td>
+                <td><button class="add-to-cart" onclick="addToCart('DP Kothari', 'Mc Graw Hill', 534)">Add to Cart</button></td>
+            </tr>
+            <tr>
+                <td><img src="book13.jpg" alt="Book 13"></td>
+                <td>DC Kulshreshtha</td>
+                <td>Mc Graw Hill</td>
+                <td>Rs 615.00</td>
+                <td><button class="add-to-cart" onclick="addToCart('DC Kulshreshtha', 'Mc Graw Hill', 615)">Add to Cart</button></td>
+            </tr>
+            <tr>
+                <td><img src="book14.jpg" alt="Book 14"></td>
+                <td>RS Khurmi</td>
+                <td>S. Chand</td>
+                <td>Rs 499.00</td>
+                <td><button class="add-to-cart" onclick="addToCart('RS Khurmi', 'S. Chand', 499)">Add to Cart</button></td>
+            </tr>
+            <tr>
+                <td><img src="book15.jpg" alt="Book 15"></td>
+                <td>Shan Shomaya</td>
+                <td>Pearson</td>
+                <td>Rs 349.00</td>
+                <td><button class="add-to-cart" onclick="addToCart('Shan Shomaya', 'Pearson', 349)">Add to Cart</button></td>
+            </tr>
+            <tr>
+                <td><img src="book16.jpg" alt="Book 16"></td>
+                <td>Hudson Jackson</td>
+                <td>CRC Point</td>
+                <td>Rs 659.00</td>
+                <td><button class="add-to-cart" onclick="addToCart('Hudson Jackson', 'CRC Point', 659)">Add to Cart</button></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <script>
+        function addToCart(author, publisher, price) {
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            
+            const existingBook = cart.find(book => book.author === author);
+            if (existingBook) {
+                existingBook.quantity += 1;
+                existingBook.amount = existingBook.quantity * price;
+            } else {
+                cart.push({
+                    author: author,
+                    publisher: publisher,
+                    price: price,
+                    quantity: 1,
+                    amount: price
+                });
+            }
+
+            localStorage.setItem('cart', JSON.stringify(cart));
+            alert(`${author} has been added to your cart!`);
+        }
+    </script>
+</body>
+</html>

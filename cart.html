@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            padding: 20px;
+        }
+        h2 {
+            text-align: center;
+            color: #004080;
+            margin-bottom: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 0 auto;
+            background-color: white;
+        }
+        th, td {
+            padding: 15px;
+            text-align: left;
+            border: 1px solid #ddd;
+        }
+        th {
+            background-color: #004080;
+            color: white;
+        }
+        .total-row td {
+            font-weight: bold;
+            text-align: right;
+            color: #004080;
+        }
+        .actions {
+            text-align: center;
+            margin: 20px;
+        }
+        .reset-cart {
+            padding: 10px 20px;
+            font-size: 16px;
+            color: white;
+            background-color: #ff4d4d;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .reset-cart:hover {
+            background-color: #cc0000;
+        }
+    </style>
+</head>
+<body>
+    <h2>Your Cart</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Book Name</th>
+                <th>Price (Rs)</th>
+                <th>Quantity</th>
+                <th>Amount (Rs)</th>
+            </tr>
+        </thead>
+        <tbody id="cartBody">
+            <!-- Cart items will be dynamically inserted here -->
+        </tbody>
+        <tfoot>
+            <tr class="total-row">
+                <td colspan="3">Total Amount</td>
+                <td id="totalAmount">Rs 0.00</td>
+            </tr>
+        </tfoot>
+    </table>
+    <div class="actions">
+        <button class="reset-cart" onclick="resetCart()">Reset Cart</button>
+    </div>
+
+    <script>
+        function loadCart() {
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+            const cartBody = document.getElementById('cartBody');
+            const totalAmount = document.getElementById('totalAmount');
+
+            cartBody.innerHTML = ''; // Clear existing rows
+            let total = 0;
+
+            cart.forEach(item => {
+                const row = `
+                    <tr>
+                        <td>${item.author}</td>
+                        <td>Rs ${item.price.toFixed(2)}</td>
+                        <td>${item.quantity}</td>
+                        <td>Rs ${item.amount.toFixed(2)}</td>
+                    </tr>
+                `;
+                cartBody.innerHTML += row;
+                total += item.amount;
+            });
+
+            totalAmount.textContent = `Rs ${total.toFixed(2)}`;
+        }
+
+        function resetCart() {
+            localStorage.removeItem('cart'); // Clear the cart
+            loadCart(); // Reload the empty cart
+        }
+
+        // Load cart items on page load
+        window.onload = loadCart;
+    </script>
+</body>
+</html>

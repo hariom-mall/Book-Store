@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .login-container {
+            width: 300px;
+            padding: 20px;
+            background-color: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+        .login-container h2 {
+            text-align: center;
+            color: #004080; /* Navy blue */
+            margin-bottom: 20px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            color: #333;
+        }
+        .form-group input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+        .form-group input:focus {
+            outline: none;
+            border-color: #004080;
+        }
+        .form-actions {
+            display: flex;
+            justify-content: space-between;
+        }
+        .form-actions button {
+            padding: 10px 20px;
+            font-size: 14px;
+            color: white;
+            background-color: #004080;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .form-actions button:hover {
+            background-color: #003366;
+        }
+        .form-actions button.reset {
+            background-color: #e74c3c; /* Red */
+        }
+        .form-actions button.reset:hover {
+            background-color: #c0392b;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <h2>Login</h2>
+        <form action="dashboard.html" method="post">
+            <div class="form-group">
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <div class="form-actions">
+                <button type="submit">Submit</button>
+                <button type="reset" class="reset">Reset</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
